@@ -40,6 +40,28 @@ func ReadLinesAsInt(fh io.Reader) ([]int, error) {
 	return lines, scanner.Err()
 }
 
+// Reads a file of integers, one per line (ignoring empty), and returns the corresponding array
+func ReadLinesAsIntArray(fh io.Reader) ([][]int, error) {
+	var lines [][]int
+	scanner := bufio.NewScanner(fh)
+	for scanner.Scan() {
+		line := scanner.Text()
+		if len(line) == 0 {
+			continue
+		}
+		iline := make([]int, 0)
+		for _, r := range line {
+			i, err := strconv.Atoi(string(r))
+			if err != nil {
+				return nil, err
+			}
+			iline = append(iline, i)
+		}
+		lines = append(lines, iline)
+	}
+	return lines, scanner.Err()
+}
+
 // Reads a CSV file
 func ReadCSV(fh io.Reader) ([][]string, error) {
 	r := csv.NewReader(fh)

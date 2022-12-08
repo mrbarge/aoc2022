@@ -56,5 +56,17 @@ efgh`
 			Expect(res).To(Equal(out))
 		})
 	})
-
+	Context("ReadLinesAsIntArray", func() {
+		It("Behaves correctly", func() {
+			in := `123
+456
+7892
+`
+			ir := strings.NewReader(in)
+			out := [][]int{{1, 2, 3}, {4, 5, 6}, {7, 8, 9, 2}}
+			res, err := helper.ReadLinesAsIntArray(ir)
+			Expect(err).To(BeNil())
+			Expect(res).To(Equal(out))
+		})
+	})
 })
