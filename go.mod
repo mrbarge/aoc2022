@@ -3,7 +3,9 @@ module github.com/mrbarge/aoc2022
 go 1.18
 
 require (
+	github.com/RyanCarrier/dijkstra v1.1.0
 	github.com/albertorestifo/dijkstra v0.0.0-20160910063646-aba76f725f72
+	github.com/ernestosuarez/itertools v0.0.0-20190516153236-40a02c159e7b
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.17.0
 )
